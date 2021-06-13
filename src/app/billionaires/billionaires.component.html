@@ -1,1 +1,12 @@
-<p>billionaires works!</p>
+<div class="wrapper">
+  <h1>Billionaires</h1>
+
+  <div class="grid-wrapper" *ngIf="data$ | async as data">
+    <ag-grid-angular
+      class="ag-theme-alpine ag-grid"
+      [rowData]="data.entities"
+      [columnDefs]="data.columnDefs"
+    >
+    </ag-grid-angular>
+  </div>
+</div>
