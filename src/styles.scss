@@ -2,6 +2,16 @@
 @import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
 @import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 h1 {
   margin: 0;
   margin-bottom: 1rem;
