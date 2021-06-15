@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { GridData } from './grid-data';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  styleUrls: ['./grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridComponent implements OnInit {
+  @Input() data?: GridData | null;
 
   constructor() { }
 

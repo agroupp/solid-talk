@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { BillionairesService } from './state/billionaires.service';
 import { BillionairesQuery } from './state/billionaires.query';
@@ -6,7 +6,8 @@ import { BillionairesQuery } from './state/billionaires.query';
 @Component({
   selector: 'app-billionaires',
   templateUrl: './billionaires.component.html',
-  styleUrls: ['./billionaires.component.scss']
+  styleUrls: ['./billionaires.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BillionairesComponent implements OnInit {
   readonly data$ = this.billionairesQuery.data$;

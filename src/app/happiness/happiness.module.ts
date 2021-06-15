@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
-import { AgGridModule } from 'ag-grid-angular';
 
+import { GridModule } from '../grid/grid.module';
 import { HappinessComponent } from './happiness.component';
 
 const routes: Route[] = [
@@ -15,7 +15,7 @@ const routes: Route[] = [
   ],
   imports: [
     CommonModule,
-    AgGridModule.withComponents([]),
+    GridModule,
     RouterModule.forChild(routes),
   ]
 })
