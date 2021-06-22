@@ -2,8 +2,11 @@
   padding-top: 2rem;
 }
 
-.ag-grid {
-  height: 500px;
+.grid-wrapper {
   width: 820px;
   margin: 0 auto;
+}
+
+.ag-grid {
+  height: 500px;
 }

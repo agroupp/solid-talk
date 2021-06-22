@@ -1,12 +1,16 @@
 <div class="wrapper">
   <h1>Happiness</h1>
 
-  <div class="grid-wrapper" *ngIf="data$ | async as data">
+  <div class="grid-wrapper">
     <ag-grid-angular
       class="ag-theme-alpine ag-grid"
-      [rowData]="data.entities"
-      [columnDefs]="data.columnDefs"
+      [rowData]="entities$ | async"
+      [columnDefs]="columnDefs"
     >
     </ag-grid-angular>
+  </div>
+
+  <div class="grid-wrapper">
+    <app-grid [entities]="entities$ | async" [columns]="columns.slice(0)"></app-grid>
   </div>
 </div>

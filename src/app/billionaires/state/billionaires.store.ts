@@ -15,14 +15,4 @@ export class BillionairesStore extends EntityStore<BillionairesState> {
   constructor() {
     super({ columnDefs: [] }, { name: 'Billionaires' });
   }
-
-  private setColumnDefs() {
-    const columnDefs: ColDef[] = Object.keys(this.getValue()?.entities?.[0] || {}).map(key => ({ field: key }));
-    this.update({ columnDefs });
-  }
-
-  setEntities(entities: Billionaire[]) {
-    this.set(entities);
-    this.setColumnDefs();
-  }
 }

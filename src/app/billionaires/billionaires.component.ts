@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ColDef } from 'ag-grid-community';
+import { tap } from 'rxjs/operators';
 
 import { BillionairesService } from './state/billionaires.service';
 import { BillionairesQuery } from './state/billionaires.query';
@@ -9,7 +11,15 @@ import { BillionairesQuery } from './state/billionaires.query';
   styleUrls: ['./billionaires.component.scss']
 })
 export class BillionairesComponent implements OnInit {
-  readonly data$ = this.billionairesQuery.data$;
+  readonly entities$ = this.billionairesQuery.entities$.pipe(
+    tap(entities => {
+      this.columns = Object.keys(entities?.[0] || {});
+      this.columnDefs = this.columns.map(c => ({ field: c }))
+    })
+  );
+
+  columnDefs: ColDef[] = [];
+  columns: string[] = [];
 
   constructor(private readonly billionairesService: BillionairesService, private readonly billionairesQuery: BillionairesQuery) { }
 

@@ -17,7 +17,7 @@ export class BillionairesService {
       tap(ent => {
         let entities = ent.slice(0, 10);
         entities = entities.map((e: Billionaire, index: number) => ({ ...e, id: index}));
-        this.store.setEntities(entities);
+        this.store.set(entities);
       })
     );
   }

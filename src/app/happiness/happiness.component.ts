@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ColDef } from 'ag-grid-community';
 import { HappinessQuery } from './state/happiness.query';
 
 import { HappinessService } from './state/happiness.service';
+
+const COLUMNS = [
+  'countryName',
+  'corruption',
+  'gdp',
+  'ladderScore',
+] as const;
 
 @Component({
   selector: 'app-happiness',
@@ -9,11 +17,13 @@ import { HappinessService } from './state/happiness.service';
   styleUrls: ['./happiness.component.scss']
 })
 export class HappinessComponent implements OnInit {
-  readonly data$ = this.happinessQuery.data$;
+  readonly entities$ = this.happinessQuery.entities$;
+  columns = COLUMNS;
+  columnDefs: ColDef[] = COLUMNS.map(c => ({ field: c }));
+
   constructor(private readonly happinessService: HappinessService, private readonly happinessQuery: HappinessQuery) { }
 
   ngOnInit(): void {
     this.happinessService.read().subscribe();
   }
-
 }

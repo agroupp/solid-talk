@@ -1,10 +1,12 @@
-<header class="main-toolbar">
-  <a class="home" routerLink="/">S.O.L.I.D.</a>
-</header>
-<main>
+<div class="wrapper">
+  <header class="main-toolbar">
+    <a class="home" routerLink="/">S.O.L.I.D.</a>
+  </header>
   <div class="links-row">
     <a routerLink="/billionaires" routerLinkActive="link-active">Billionaires</a>
     <a routerLink="/happiness" routerLinkActive="link-active">Happiness</a>
   </div>
-  <router-outlet></router-outlet>
-</main>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
