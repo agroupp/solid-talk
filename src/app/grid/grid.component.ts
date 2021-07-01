@@ -19,7 +19,9 @@ export class GridComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    this.columns = this.columns?.length ? this.columns : Object.keys(this.entities?.[0] as any)
+    if (this.entities?.length) {
+      this.columns = this.columns?.length ? this.columns : Object.keys(this.entities?.[0] as any);
+    }
     this.columnDefs = this.columns.map(c => ({ field: c }));
   }
 }
