@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { tap } from 'rxjs/operators';
 
 import { BillionairesService } from './state/billionaires.service';
 import { BillionairesQuery } from './state/billionaires.query';
+import { GridDataSource } from '../grid/datasource';
 
 @Component({
   selector: 'app-billionaires',
   templateUrl: './billionaires.component.html',
-  styleUrls: ['./billionaires.component.scss']
+  styleUrls: ['./billionaires.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BillionairesComponent implements OnInit {
   readonly entities$ = this.billionairesQuery.entities$.pipe(

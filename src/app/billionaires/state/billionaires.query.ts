@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { QueryEntity } from '@datorama/akita';
+
+import { GridDataSource } from '../../grid/datasource';
 import { BillionairesState, BillionairesStore } from './billionaires.store';
 
 @Injectable({

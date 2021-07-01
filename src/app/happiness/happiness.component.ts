@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
+import { GridDataSource } from '../grid/datasource';
 import { HappinessQuery } from './state/happiness.query';
 
 import { HappinessService } from './state/happiness.service';
@@ -14,7 +15,8 @@ const COLUMNS = [
 @Component({
   selector: 'app-happiness',
   templateUrl: './happiness.component.html',
-  styleUrls: ['./happiness.component.scss']
+  styleUrls: ['./happiness.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HappinessComponent implements OnInit {
   readonly entities$ = this.happinessQuery.entities$;
